@@ -12,8 +12,26 @@ class MyApp extends StatelessWidget {  //여기부터
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('성명기'),),
-        body: Row(children: [Text('data'),Text('data'),],),
-        bottomNavigationBar: BottomAppBar(child: Text("asd"),),
+        body: Container(
+          color: Colors.grey,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [Icon(Icons.add),
+              Icon(Icons.ac_unit_sharp),
+              Icon(Icons.square)],
+          ),
+        ),
+        bottomNavigationBar: Container(
+          height: 70,
+          color: Colors.white60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Icon(Icons.phone),
+          Icon(Icons.message),
+          Icon(Icons.people)],),
+        ) ,
       ),
     );
 
