@@ -10,12 +10,11 @@ class MyApp extends StatelessWidget {  //여기부터
   Widget build(BuildContext context) { //여기까지는 기본적인 세팅
 
     return MaterialApp(
-      // home: Text('hello'),
-      // home: Icon(Icons.shop),
-      // home: Image.asset('dogeye.png'),
-      home: Center(
-        child: Container(width: 50,height: 50, color: Colors.green,),
-      )
+      home: Scaffold(
+        appBar: AppBar(title: Text('성명기'),),
+        body: Row(children: [Text('data'),Text('data'),],),
+        bottomNavigationBar: BottomAppBar(child: Text("asd"),),
+      ),
     );
 
   }
