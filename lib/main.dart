@@ -13,14 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Character card", // 앱의 이름
-      theme: ThemeData(
-        primarySwatch: Colors.indigo
-      ),
+      theme: ThemeData(primarySwatch: Colors.indigo),
       home: Grade(),
     );
   }
 }
-
 
 class Grade extends StatelessWidget {
   const Grade({Key? key}) : super(key: key);
@@ -35,8 +32,7 @@ class Grade extends StatelessWidget {
         backgroundColor: Colors.indigo[400],
         elevation: 0,
       ),
-      body:
-      Padding(
+      body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 0, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
