@@ -42,7 +42,15 @@ class Grade extends StatelessWidget {
                 backgroundImage: AssetImage('icon1.png'),
                 radius: 40,
               ),
-            )
+            ),
+            Divider(
+              color: Colors.grey[850],
+              thickness: 0.5,
+              height: 60,
+              endIndent: 30, // 끝나는 구역에서 얼마나 떨어질지
+            ),
+            const Text("Name", style: TextStyle(color: Colors.white, fontSize: 28,letterSpacing: 2.0),),
+            const SizedBox(height: 30),
           ],
         ),
       ),
