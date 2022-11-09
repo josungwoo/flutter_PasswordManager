@@ -1,57 +1,65 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
+import 'listview.dart';
+import 'settingsview.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(MyApp());
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Character card", // 앱의 이름
-      theme: ThemeData(primarySwatch: Colors.indigo),
-      home: Grade(),
-    );
-  }
-}
-
-class Grade extends StatelessWidget {
-  const Grade({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.indigo[500],
-      appBar: AppBar(
-        title: Text("BBANTO"),
-        centerTitle: true,
-        backgroundColor: Colors.indigo[400],
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 40, 0, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('icon1.png'),
-                radius: 40,
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Password Manager'),
+          ),
+          // ignore: prefer_const_literals_to_create_immutables
+          body: TabBarView(children: [
+            ListViewPage(),
+            SettingsView(),
+          ]),
+          extendBodyBehindAppBar: true,
+          bottomNavigationBar: Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                child: Container(
+                  height: 80,
+                  color: Colors.blue,
+                  child: const TabBar(tabs: [
+                    Tab(icon: Icon(Icons.home), text: 'Home'),
+                    Tab(icon: Icon(Icons.settings), text: 'Settings'),
+                  ]),
+                ),
               ),
-            ),
-            Divider(
-              color: Colors.grey[850],
-              thickness: 0.5,
-              height: 60,
-              endIndent: 30, // 끝나는 구역에서 얼마나 떨어질지
-            ),
-            const Text("Name", style: TextStyle(color: Colors.white, fontSize: 28,letterSpacing: 2.0),),
-            const SizedBox(height: 30),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                      child: FloatingActionButton(
+                    onPressed: () {},
+                    // ignore: sort_child_properties_last
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Icon(Icons.add),
+                          Text('Add', style: TextStyle(fontSize: 10)),
+                        ]),
+                    backgroundColor: Colors.blue,
+                  )),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
